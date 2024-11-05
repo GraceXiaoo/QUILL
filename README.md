@@ -3,7 +3,9 @@
 
 ## Install Dependencies
 
+```
 pip install -r requirements.txt
+```
 
 ## Note
 
@@ -52,9 +54,10 @@ All the reranking results are in the folder [data/eval/ablation](data/eval/ablat
 The collected data can be found in the [data/rag](data/rag). All samples have been anonymized.
 
 ## Citation
-
+```
 @article{xiao24quill
   author    = {JinXiao, BoweiZhang, QianyuHe, JiaqingLiang, FengWei, JingleiChen, ZujieLiang, DeqingYang, YanghuaXiao},
   title     = {QUILL: Quotation Generation Enhancement of Large Language Models},
   year      = {2024},
 }
+```
