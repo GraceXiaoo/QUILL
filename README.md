@@ -3,9 +3,7 @@
 
 ## Install Dependencies
 
-```
-
-```
+pip install -r requirements.txt
 
 ## Note
 
@@ -55,6 +53,8 @@ The collected data can be found in the [data/rag](data/rag). All samples have be
 
 ## Citation
 
-```
-
-```
+@article{xiao24quill
+  author    = {JinXiao, BoweiZhang, QianyuHe, JiaqingLiang, FengWei, JingleiChen, ZujieLiang, DeqingYang, YanghuaXiao},
+  title     = {QUILL: Quotation Generation Enhancement of Large Language Models},
+  year      = {2024},
+}
