@@ -1,7 +1,7 @@
 # QUILL
 
 ## Website&Demo
-This is the repository that contains source code for the [QUILL website](https://gracexiaoo.github.io/quill.github.io/).
+See our quill website and demo: [QUILL website](https://gracexiaoo.github.io/quill.github.io/).
 
 ## Install Dependencies
 
