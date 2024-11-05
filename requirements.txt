@@ -1,0 +1,12 @@
+chromadb
+colorama
+pysqlite3-binary
+bitsandbytes
+sentencepiece
+sentence_transformers==2.6.1
+streamlit
+transformers_stream_generator
+cpm_kernels
+transformers
+openpyxl
+accelerate
