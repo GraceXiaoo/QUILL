@@ -1,3 +1,8 @@
+<p align="left">
+    <a href="README_CN.md">中文</a>&nbsp ｜ &nbspEnglish&nbsp
+</p>
+<br>
+
 # QUILL
 
 ## Website&Demo
