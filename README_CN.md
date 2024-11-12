@@ -14,7 +14,7 @@
 pip install -r requirements.txt
 ```
 
-## 注意！
+## 注意
 
 在运行代码前，请先`sh app.sh`来保证计算ppl和提取引言的功能的正常运行 （同时请确认文件中的模型路径正确）
 ```
