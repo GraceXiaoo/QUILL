@@ -110,6 +110,8 @@ def main(args):
         tokenizer=llm='llama2-70b-chat'
     elif model_name=='qwen1.5-72b-chat':
         tokenizer=llm='qwen1.5-72b-chat'
+    elif model_name=='deepseel-r1':
+        tokenizer=llm='deepseek-r1'
     else:
         print("Model ERROR")
     

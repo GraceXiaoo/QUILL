@@ -38,16 +38,17 @@ def compute_S_m(rewrite,quote):
     try:
         quote_index = rewrite.find(quote)
         if quote_index != -1 and quote_index !=0 :
-            ppl = compute_ppl(rewrite[:quote_index + len(quote)],rewrite[quote_index+len(quote):])
+            ppl = compute_ppl(rewrite[:quote_index + len(quote)],rewrite[quote_index+len(quote):])            
         else:
-            print('Error : [Q] in  the beginning or end of the query')
+            print('指标位置在最开头或结尾')
             return 'nan'
-        if ppl >=50:
-            ppl = 50
-        S_m = (1-ppl/50)
+
+        S_m = safe_exp(0.053 * (ppl - 35.243))
+        print(ppl)
+        print('语义匹配度S_m', S_m)
         return S_m
     except Exception as e:
-        print('Error : Compute S_m:', str(e))
+        print('计算语义匹配度出现问题:', str(e))
         ppl = 'nan'
         return 'nan'
 
@@ -55,12 +56,12 @@ def compute_S_m(rewrite,quote):
 def compute_S_f(rewrite,quote):
     try:
         ppl = compute_ppl('',rewrite)
-        if ppl >=50:
-            ppl = 50
-        S_f = (1-ppl/50)
+        S_f = safe_exp(0.5 * (ppl - 16.47))
+
+        print('语义流畅度S_f', S_f)
         return S_f
     except Exception as e:
-        print('Error : Compute S_f', str(e))
+        print('计算语义流畅度出现问题:', str(e))
         ppl = 'nan'
         return 'nan'
 
@@ -77,17 +78,22 @@ def compute_PPL_q(quote):
 def compute_S_n(quote):
     try:
         PPL_q = compute_PPL_q(quote)
-        quote = quote.replace('"','')
+        try:
+            quote = quote.replace('"','')
+        except:
+            pass
+
         if quote in Search_dict:
             SearchFreq = Search_dict[quote]
         novelty = (PPL_q * 5) / math.log10(SearchFreq)
-        if novelty >= 20:
-            novelty = 20
-        S_n = novelty / 20    
+        
+        exp_n = safe_exp(-0.253 * (novelty - 10.67))
+        S_n = (1 / (1 + exp_n)) 
         print('ppl',PPL_q,'SearchFreq',SearchFreq) 
+        print('新颖度S_n', S_n)
         return S_n
     except:
-        print('Error : Compute S_n')
+        print('计算S_n出现问题')
         return 'nan'
 
 

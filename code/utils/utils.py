@@ -5,6 +5,7 @@ from ..model_llm.chatgpt import get_response as get_response_gpt
 import random
 import dashscope
 from http import HTTPStatus
+import math
 
 ## Ablation
 ##Input the dict of Novelty and relevances
@@ -98,3 +99,12 @@ def get_prompt(prompt,query):
     if '{query}' in prompt:
         prompt = prompt.replace('{query}', query)
     return prompt
+
+def safe_exp(value):
+    # 设置阈值来避免指数溢出
+    if value > 700:
+        return float('inf')  # 超过范围返回正无穷
+    elif value < -700:
+        return 0  # 太小返回0
+    else:
+        return math.exp(value)
